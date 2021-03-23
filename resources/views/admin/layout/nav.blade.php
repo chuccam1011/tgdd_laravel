@@ -51,7 +51,7 @@
                         <a class="nav-link" href="{{route('view-ram')}}">View Ram</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('create-product')}}">View Brand</a>
+                        <a class="nav-link" href="{{route('view-brand')}}">View Brand</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('create-product')}}">View </a>

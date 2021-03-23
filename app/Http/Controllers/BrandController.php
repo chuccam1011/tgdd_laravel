@@ -2,17 +2,61 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AdminBrandCreateRequest;
+use App\Models\Brand;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BrandController extends Controller
 {
     public function create()
     {
-        return view('admin.product.create');
+        return view('admin.attrtibute.brand.create');
     }
 
-    public function view()
+    public function submitCreate(AdminBrandCreateRequest $request)
+    {
+        if ($request->file('logo')->isValid()) {
+            $fileName = time().$request->file('logo')->getClientOriginalName();
+            Storage::disk('public')->putFileAs('logo/',
+                $request->file('logo'),
+                $fileName);
+
+            if (!is_null($fileName)) {
+
+                $brand = new Brand();
+                $brand->name = $request->name;
+                $brand->logo = $fileName;
+                $brand->description = $request->description;
+                $brand->save();
+                return redirect()->route('view-brand')->with('success', 'Success! image uploaded');
+            } else {
+                return back()->with("failed", "Alert! image not uploaded");
+            }
+        }
+        return back()->with("failed", "Alert! image not uploaded");
+
+    }
+
+    public function view(Request $request)
+    {
+        $success = $request->success;
+        $brands = Brand::query();
+
+
+        $brands->latest('id');
+        $brands = $brands->paginate();
+        return view('admin.attrtibute.brand.index', compact('brands', 'success'));
+    }
+
+    public function submitEdit()
     {
         return view('admin.product.view');
     }
+
+    public function delete()
+    {
+        return view('admin.product.view');
+    }
+
 }

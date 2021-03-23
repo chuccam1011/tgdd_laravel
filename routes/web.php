@@ -48,6 +48,10 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::get('create-brand', [\App\Http\Controllers\BrandController::class, 'create'])->name('create-brand');
     Route::post('create-brand', [\App\Http\Controllers\BrandController::class, 'submitCreate'])->name('submitCreate-brand');
+    Route::get('view-brand', [\App\Http\Controllers\BrandController::class, 'view'])->name('view-brand');
+    Route::get('edit-brand', [\App\Http\Controllers\BrandController::class, 'edit'])->name('edit-brand');
+    Route::post('edit-brand', [\App\Http\Controllers\BrandController::class, 'submitEdit'])->name('submitEdit-brand');
+    Route::post('delete-brand', [\App\Http\Controllers\BrandController::class, 'delete'])->name('delete-brand');
 
     Route::get('create-cam_afters', [\App\Http\Controllers\CamAfterController::class, 'create'])->name('create-cam_afters');
     Route::post('create-cam_afters', [\App\Http\Controllers\CamAfterController::class, 'submitCreate'])->name('submitCreate-cam_afters');
@@ -85,8 +89,6 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::get('create-opera', [\App\Http\Controllers\CpuController::class, 'create'])->name('create-opera');
     Route::post('create-opera', [\App\Http\Controllers\CpuController::class, 'submitCreate'])->name('submitCreate-opera');
-
-
 
 });
 

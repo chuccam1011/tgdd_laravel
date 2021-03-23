@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-body">
-        <h4 class="card-title">Striped Table</h4>
+        <h4 class="card-title"></h4>
         <p class="card-description"> Add class <code>.table-striped</code> </p>
         <table class="table table-striped">
             <thead>
