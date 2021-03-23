@@ -1,4 +1,5 @@
 <div class="main-panel">
+    @push('title') Admin @endpush
     <div class="content-wrapper">
         <!-- Page Title Header Starts-->
         <div class="row page-title-header">

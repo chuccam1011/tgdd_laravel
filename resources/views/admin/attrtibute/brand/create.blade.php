@@ -1,5 +1,6 @@
 @extends('admin.layout.master')
-
+@push('title') Create Ram
+@endpush
 @section('nav')
     <div class="nav_admin">
         @include('admin.layout.nav')
@@ -8,7 +9,7 @@
 
 @section('main-panel');
 <div class="">
-    @include('admin.layout.main-panel')
+    @include('admin.layout.form-lib')
 </div>
 @endsection
 <style>

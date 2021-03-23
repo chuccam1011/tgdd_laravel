@@ -23,6 +23,53 @@
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
                aria-controls="ui-basic">
                 <i class="menu-icon typcn typcn-coffee"></i>
+                <span class="menu-title">Product</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('create-product')}}">Create New Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('view-product')}}">View Product</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
+               aria-controls="ui-basic">
+                <i class="menu-icon typcn typcn-coffee"></i>
+                <span class="menu-title">Attribute</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('view-ram')}}">View Ram</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('create-product')}}">View Brand</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('create-product')}}">View </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('create-product')}}"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('create-product')}}"></a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
+               aria-controls="ui-basic">
+                <i class="menu-icon typcn typcn-coffee"></i>
                 <span class="menu-title">Basic UI Elements</span>
                 <i class="menu-arrow"></i>
             </a>
