@@ -22,6 +22,7 @@
                         <th> Name</th>
                         <th> Description</th>
                         <th> Number Product</th>
+                        <th> Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -35,6 +36,18 @@
                             </td>
                             <td>{{$brand->description}}</td>
                             <td>{{$brand->created_at}}</td>
+                            <td>
+                                <a href="{{route('edit-brand',$brand->id)}}">
+                                    <button type="button" class="btn btn-success btn-fw">Edit</button>
+                                </a>
+                                <form class="frm-delete" action="{{ route('delete-brand', $brand->id) }}" method="POST">
+                                    @method('delete')
+                                    @csrf
+                                    <button type="button" class="btn-delete btn btn-danger btn-fw">
+                                        Delete
+                                    </button>
+                                </form>
+                            </td>
 
                         </tr>
                     @endforeach
@@ -45,6 +58,15 @@
         </div>
 
     </div>
+
+    <script>
+        $('.btn-delete').click(function () {
+            let isDelete = confirm('Do you want to edit this Brand');
+            if (isDelete) {
+                $(this).parents('form').submit();
+            }
+        });
+    </script>
 @endsection
 <style>
     .nav_admin {

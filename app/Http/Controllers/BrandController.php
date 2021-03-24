@@ -17,13 +17,12 @@ class BrandController extends Controller
     public function submitCreate(AdminBrandCreateRequest $request)
     {
         if ($request->file('logo')->isValid()) {
-            $fileName = time().$request->file('logo')->getClientOriginalName();
+            $fileName = time() . $request->file('logo')->getClientOriginalName();
             Storage::disk('public')->putFileAs('logo/',
                 $request->file('logo'),
                 $fileName);
 
             if (!is_null($fileName)) {
-
                 $brand = new Brand();
                 $brand->name = $request->name;
                 $brand->logo = $fileName;
@@ -49,14 +48,35 @@ class BrandController extends Controller
         return view('admin.attrtibute.brand.index', compact('brands', 'success'));
     }
 
-    public function submitEdit()
+    public function edit(Request $request)
     {
-        return view('admin.product.view');
+        $brand = Brand::find($request->id);
+        return view('admin.attrtibute.brand.edit', compact('brand'));
     }
 
-    public function delete()
+    public function submitEdit(AdminBrandCreateRequest $request)
     {
-        return view('admin.product.view');
+        $brand = Brand::find($request->id);
+        $brand->name = $request->name;
+        $brand->description = $request->description;
+        if ($request->logo && $request->file('logo')->isValid()) {
+            $fileName = time() . $request->file('logo')->getClientOriginalName();
+            Storage::disk('public')->putFileAs('logo/',
+                $request->file('logo'), $fileName);
+            if (!is_null($fileName)) {
+                Storage::delete('public/logo/' . $brand->logo);
+                $brand->logo = $fileName;
+            }
+        }
+        $brand->save();
+        return redirect()->route('view-brand');
+    }
+
+    public function delete(Request $request)
+    {
+        $brand = Brand::find($request->id);
+        $brand->delete();
+        return redirect()->route('view-brand');
     }
 
 }

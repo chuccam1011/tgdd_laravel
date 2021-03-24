@@ -23,11 +23,19 @@ class AdminBrandCreateRequest extends FormRequest
      */
     public function rules()
     {
+        $id = $this->request->get('id');
+        if (isset($id)) {
+            return [
+                'name' => 'required|unique:brands,id,{$id}',
+                'logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ];
+        }
         return [
             'name' => 'required|unique:brands',
             'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
+
     /**
      * Get the error messages for the defined validation rules.
      *
@@ -36,12 +44,12 @@ class AdminBrandCreateRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'A Username is required',
-            'name.unique' => 'A Username is unique',
-            'logo.required'=>'Logo is required',
-            'logo.image'=>'Logo is image',
-            'logo.mimes'=>'Logo extension must be jpeg,png,jpg,gif,svg',
-            'logo.max'=>'Maximum of size is 2048kb',
+            'name.required' => 'A name is required',
+            'name.unique' => 'A name is unique',
+            'logo.required' => 'Logo is required',
+            'logo.image' => 'Logo is image',
+            'logo.mimes' => 'Logo extension must be jpeg,png,jpg,gif,svg',
+            'logo.max' => 'Maximum of size is 2048kb',
         ];
     }
 }

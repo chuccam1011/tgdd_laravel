@@ -25,6 +25,9 @@
     <link rel="stylesheet" href="/ad/assets/css/demo_1/style.css">
     <!-- End Layout styles -->
     <link rel="shortcut icon" href="/ad/assets/images/favicon.ico"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 <body>
 
@@ -52,6 +55,6 @@
 <!-- Custom js for this page-->
 <script src="/ad/assets/js/demo_1/dashboard.js"></script>
 <!-- End custom js for this page-->
-<script src="/ad/assets/js/shared/jquery.cookie.js" type="text/javascript"></script>
+{{--<script src="/ad/assets/js/shared/jquery.cookie.js" type="text/javascript"></script>--}}
 </body>
 </html>

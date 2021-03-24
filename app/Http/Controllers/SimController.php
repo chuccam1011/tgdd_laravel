@@ -8,11 +8,18 @@ class SimController extends Controller
 {
     public function create()
     {
-        return view('admin.product.create');
+    }
+    public function submitCreate()
+    {
     }
 
     public function view()
     {
-        return view('admin.product.view');
+    }
+    public function submitEdit()
+    {
+    }
+    public function delete()
+    {
     }
 }
