@@ -8,7 +8,9 @@ class ProductController extends Controller
 {
     public function create()
     {
+        return view("admin.product.create");
     }
+
     public function submitCreate()
     {
     }
@@ -16,9 +18,11 @@ class ProductController extends Controller
     public function view()
     {
     }
+
     public function submitEdit()
     {
     }
+
     public function delete()
     {
     }

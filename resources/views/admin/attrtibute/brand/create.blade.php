@@ -31,7 +31,7 @@
                     @enderror
                     <div class="form-group">
                         <label for="exampleTextarea1">Description</label>
-                        <textarea name="description" class="form-control" id="exampleTextarea1" rows="2">{{old('name',$brand->description)}}</textarea>
+                        <textarea name="description" class="form-control" id="exampleTextarea1" rows="2">{{old('description')}}</textarea>
                     </div>
                     <button type="submit" class="btn btn-success mr-2">Submit</button>
                 </form>
