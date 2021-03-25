@@ -12,6 +12,7 @@ class AuthAdmin extends Controller
 {
     public function getFormLogin(Request $request)
     {
+        $a= $d-$c;
         $isRegistered = $request->input('register');
         $name = $request->input('name');
         return view('admin.auth.login', [
