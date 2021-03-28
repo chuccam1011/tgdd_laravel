@@ -63,9 +63,17 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::get('create-cam_afters', [\App\Http\Controllers\CamAfterController::class, 'create'])->name('create-cam_afters');
     Route::post('create-cam_afters', [\App\Http\Controllers\CamAfterController::class, 'submitCreate'])->name('submitCreate-cam_afters');
+    Route::get('view-brand', [\App\Http\Controllers\BrandController::class, 'view'])->name('view-brand');
+    Route::get('edit-brand/{id}', [\App\Http\Controllers\BrandController::class, 'edit'])->name('edit-brand');
+    Route::post('edit-brand', [\App\Http\Controllers\BrandController::class, 'submitEdit'])->name('submitEdit-brand');
+    Route::delete('delete-brand/{id}', [\App\Http\Controllers\BrandController::class, 'delete'])->name('delete-brand');
 
     Route::get('create-cam_afters-before', [\App\Http\Controllers\CamBeforeController::class, 'create'])->name('create-cam_afters-before');
     Route::post('create-cam_afters-before', [\App\Http\Controllers\CamBeforeController::class, 'submitCreate'])->name('submitCreate-cam_afters-before');
+    Route::get('view-brand', [\App\Http\Controllers\BrandController::class, 'view'])->name('view-brand');
+    Route::get('edit-brand/{id}', [\App\Http\Controllers\BrandController::class, 'edit'])->name('edit-brand');
+    Route::post('edit-brand', [\App\Http\Controllers\BrandController::class, 'submitEdit'])->name('submitEdit-brand');
+    Route::delete('delete-brand/{id}', [\App\Http\Controllers\BrandController::class, 'delete'])->name('delete-brand');
 
     Route::get('create-category', [\App\Http\Controllers\CategoryController::class, 'create'])->name('create-category');
     Route::post('create-category', [\App\Http\Controllers\CategoryController::class, 'submitCreate'])->name('submitCreate-category');
@@ -77,31 +85,52 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::get('create-cpu', [\App\Http\Controllers\CpuController::class, 'create'])->name('create-cpu');
     Route::post('create-cpu', [\App\Http\Controllers\CpuController::class, 'submitCreate'])->name('submitCreate-cpu');
-
+    Route::get('view-brand', [\App\Http\Controllers\BrandController::class, 'view'])->name('view-brand');
+    Route::get('edit-brand/{id}', [\App\Http\Controllers\BrandController::class, 'edit'])->name('edit-brand');
+    Route::post('edit-brand', [\App\Http\Controllers\BrandController::class, 'submitEdit'])->name('submitEdit-brand');
+    Route::delete('delete-brand/{id}', [\App\Http\Controllers\BrandController::class, 'delete'])->name('delete-brand');
 
     Route::get('create-display', [\App\Http\Controllers\DisplayController::class, 'create'])->name('create-display');
     Route::post('create-display', [\App\Http\Controllers\DisplayController::class, 'submitCreate'])->name('submitCreate-display');
-
+    Route::get('view-brand', [\App\Http\Controllers\BrandController::class, 'view'])->name('view-brand');
+    Route::get('edit-brand/{id}', [\App\Http\Controllers\BrandController::class, 'edit'])->name('edit-brand');
+    Route::post('edit-brand', [\App\Http\Controllers\BrandController::class, 'submitEdit'])->name('submitEdit-brand');
+    Route::delete('delete-brand/{id}', [\App\Http\Controllers\BrandController::class, 'delete'])->name('delete-brand');
 
     Route::get('create-memory', [\App\Http\Controllers\MemoryController::class, 'create'])->name('create-memory');
     Route::post('create-memory', [\App\Http\Controllers\MemoryController::class, 'submitCreate'])->name('submitCreate-memory');
-
+    Route::get('view-brand', [\App\Http\Controllers\BrandController::class, 'view'])->name('view-brand');
+    Route::get('edit-brand/{id}', [\App\Http\Controllers\BrandController::class, 'edit'])->name('edit-brand');
+    Route::post('edit-brand', [\App\Http\Controllers\BrandController::class, 'submitEdit'])->name('submitEdit-brand');
+    Route::delete('delete-brand/{id}', [\App\Http\Controllers\BrandController::class, 'delete'])->name('delete-brand');
 
     Route::get('create-opera', [\App\Http\Controllers\CpuController::class, 'create'])->name('create-opera');
     Route::post('create-opera', [\App\Http\Controllers\CpuController::class, 'submitCreate'])->name('submitCreate-opera');
-
+    Route::get('view-brand', [\App\Http\Controllers\BrandController::class, 'view'])->name('view-brand');
+    Route::get('edit-brand/{id}', [\App\Http\Controllers\BrandController::class, 'edit'])->name('edit-brand');
+    Route::post('edit-brand', [\App\Http\Controllers\BrandController::class, 'submitEdit'])->name('submitEdit-brand');
+    Route::delete('delete-brand/{id}', [\App\Http\Controllers\BrandController::class, 'delete'])->name('delete-brand');
 
 
     Route::get('create-pin', [\App\Http\Controllers\PinController::class, 'create'])->name('create-pin');
     Route::post('create-pin', [\App\Http\Controllers\PinController::class, 'submitCreate'])->name('submitCreate-pin');
-
+    Route::get('view-brand', [\App\Http\Controllers\BrandController::class, 'view'])->name('view-brand');
+    Route::get('edit-brand/{id}', [\App\Http\Controllers\BrandController::class, 'edit'])->name('edit-brand');
+    Route::post('edit-brand', [\App\Http\Controllers\BrandController::class, 'submitEdit'])->name('submitEdit-brand');
+    Route::delete('delete-brand/{id}', [\App\Http\Controllers\BrandController::class, 'delete'])->name('delete-brand');
 
     Route::get('create-sim', [\App\Http\Controllers\SimController::class, 'create'])->name('create-sim');
     Route::post('create-sim', [\App\Http\Controllers\SimController::class, 'submitCreate'])->name('submitCreate-sim');
-
+    Route::get('view-brand', [\App\Http\Controllers\BrandController::class, 'view'])->name('view-brand');
+    Route::get('edit-brand/{id}', [\App\Http\Controllers\BrandController::class, 'edit'])->name('edit-brand');
+    Route::post('edit-brand', [\App\Http\Controllers\BrandController::class, 'submitEdit'])->name('submitEdit-brand');
+    Route::delete('delete-brand/{id}', [\App\Http\Controllers\BrandController::class, 'delete'])->name('delete-brand');
 
     Route::get('create-opera', [\App\Http\Controllers\CpuController::class, 'create'])->name('create-opera');
     Route::post('create-opera', [\App\Http\Controllers\CpuController::class, 'submitCreate'])->name('submitCreate-opera');
-
+    Route::get('view-brand', [\App\Http\Controllers\BrandController::class, 'view'])->name('view-brand');
+    Route::get('edit-brand/{id}', [\App\Http\Controllers\BrandController::class, 'edit'])->name('edit-brand');
+    Route::post('edit-brand', [\App\Http\Controllers\BrandController::class, 'submitEdit'])->name('submitEdit-brand');
+    Route::delete('delete-brand/{id}', [\App\Http\Controllers\BrandController::class, 'delete'])->name('delete-brand');
 });
 

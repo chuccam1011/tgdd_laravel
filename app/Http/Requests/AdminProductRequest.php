@@ -27,11 +27,50 @@ class AdminProductRequest extends FormRequest
         if (isset($id)) {
             return [
                 'name' => 'required',
+                'catalog_id' => 'required',
+                'price' => 'required',
+                'brand_id' => 'required',
+                'operator_id' => 'required',
+                'camera_after_id' => 'required',
+                'camera_before_id' => 'required',
+                'cpu_id' => 'required',
+                'ram_id' => 'required',
+                'memory_id' => 'required',
+                'sim_id' => 'required',
+                'pin_id' => 'required',
+                'display_id' => 'required',
+                'feature' => 'required',
+                'title' => 'required',
+                'time-of-launch' => 'required',
                 'slug' => 'required',
+                'type' => 'required',
+                'rate' => 'required',
+                'description' => 'required',
+                'content' => 'required',
             ];
         }
         return [
-            'name' => 'required'
+            'name' => 'required',
+            'catalog_id' => 'required',
+            'price' => 'required',
+            'brand_id' => 'required',
+            'operator_id' => 'required',
+            'camera_after_id' => 'required',
+            'camera_before_id' => 'required',
+            'cpu_id' => 'required',
+            'ram_id' => 'required',
+            'memory_id' => 'required',
+            'sim_id' => 'required',
+            'pin_id' => 'required',
+            'display_id' => 'required',
+            'feature' => 'required',
+            'title' => 'required',
+            'time-of-launch' => 'required',
+            'slug' => 'required',
+            'type' => 'required',
+            'rate' => 'required',
+            'description' => 'required',
+            'content' => 'required',
         ];
     }
 
@@ -43,8 +82,7 @@ class AdminProductRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Name is required',
-            'slug.required' => 'Slug is required'
+            'name.required' => 'A name is required',
         ];
     }
 }

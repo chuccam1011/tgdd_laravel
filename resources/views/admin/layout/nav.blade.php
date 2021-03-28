@@ -40,6 +40,33 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('view-product-image')}}">Image Product</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('view-operator')}}">View operator_id</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('view-camera_after')}}">View camera_after_id</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('view-camera_before')}}">View camera_before_id</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('view-cpu')}}">View cpu_id</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('view-ram')}}">View ram_id</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('view-memory')}}">View memory_id</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('view-sim')}}">View sim_id</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('view-pin')}}">View pin_id</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('view-display')}}">View display_id</a>
+                    </li>
                 </ul>
             </div>
         </li>
