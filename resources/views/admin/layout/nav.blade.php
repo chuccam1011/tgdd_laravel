@@ -7,8 +7,8 @@
                     <div class="dot-indicator bg-success"></div>
                 </div>
                 <div class="text-wrapper">
-                    <p class="profile-name">Allen Moreno</p>
-                    <p class="designation">Premium user</p>
+                    <p class="profile-name"></p>
+                    <p class="designation"></p>
                 </div>
             </a>
         </li>
@@ -33,6 +33,12 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('view-product')}}">View Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('view-category')}}">View Category</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('view-product-image')}}">Image Product</a>
                     </li>
                 </ul>
             </div>

@@ -32,11 +32,19 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('dashboard', [\App\Http\Controllers\Dashboard::class, 'index'])->name('dashboard');
 
     Route::get('creat-product', [\App\Http\Controllers\ProductController::class, 'create'])->name('create-product');
-    Route::post('creat-product', [\App\Http\Controllers\ProductController::class, 'submitCreateProduct'])->name('submitCreate-product');
-    Route::get('edit-product', [\App\Http\Controllers\ProductController::class, 'editProduct'])->name('edit-product');
-    Route::post('edit-product', [\App\Http\Controllers\ProductController::class, 'submitEditProduct'])->name('submitEditProduct-product');
+    Route::post('creat-product', [\App\Http\Controllers\ProductController::class, 'submitCreate'])->name('submitCreate-product');
+    Route::get('view-product', [\App\Http\Controllers\ProductController::class, 'view'])->name('edit-product');
+    Route::post('edit-product', [\App\Http\Controllers\ProductController::class, 'edit'])->name('submitEditProduct-product');
     Route::get('view-product', [\App\Http\Controllers\ProductController::class, 'view'])->name('view-product');
     Route::post('delete-product', [\App\Http\Controllers\ProductController::class, 'delete'])->name('delete-product');
+
+    Route::get('view-product-image', [\App\Http\Controllers\ImgProductController::class, 'view'])->name('view-product-image');
+    Route::get('upload-product-image', [\App\Http\Controllers\ImgProductController::class, 'upLoadImage'])->name('upload-product-image');
+    Route::post('upload-product-image', [\App\Http\Controllers\ImgProductController::class, 'summitUpload'])->name('summitUploadProduct-image');
+    Route::get('edit-product-image/{id}', [\App\Http\Controllers\ImgProductController::class, 'edit'])->name('edit-product-image');
+    Route::post('edit-product-image/{id}', [\App\Http\Controllers\ImgProductController::class, 'submitEdit'])->name('edit-product-image');
+    Route::delete('delete-product-image/{id}', [\App\Http\Controllers\ImgProductController::class, 'delete'])->name('delete-product-image');
+
 
     //manager product attribute
     Route::get('create-ram', [\App\Http\Controllers\RamController::class, 'create'])->name('create-ram');
@@ -61,6 +69,11 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::get('create-category', [\App\Http\Controllers\CategoryController::class, 'create'])->name('create-category');
     Route::post('create-category', [\App\Http\Controllers\CategoryController::class, 'submitCreate'])->name('submitCreate-category');
+    Route::get('view-category', [\App\Http\Controllers\CategoryController::class, 'view'])->name('view-category');
+    Route::get('edit-category/{id}', [\App\Http\Controllers\CategoryController::class, 'edit'])->name('edit-category');
+    Route::post('edit-category', [\App\Http\Controllers\CategoryController::class, 'submitEdit'])->name('submitEdit-category');
+    Route::delete('delete-category/{id}', [\App\Http\Controllers\CategoryController::class, 'delete'])->name('delete-category');
+
 
     Route::get('create-cpu', [\App\Http\Controllers\CpuController::class, 'create'])->name('create-cpu');
     Route::post('create-cpu', [\App\Http\Controllers\CpuController::class, 'submitCreate'])->name('submitCreate-cpu');

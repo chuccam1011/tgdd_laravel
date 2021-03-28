@@ -42,7 +42,6 @@ class BrandController extends Controller
         $success = $request->success;
         $brands = Brand::query();
 
-
         $brands->latest('id');
         $brands = $brands->paginate();
         return view('admin.attrtibute.brand.index', compact('brands', 'success'));
@@ -60,7 +59,7 @@ class BrandController extends Controller
         $brand->name = $request->name;
         $brand->description = $request->description;
         if ($request->logo && $request->file('logo')->isValid()) {
-            $fileName = time() . $request->file('logo')->getClientOriginalName();
+            $fileName = time().'-' . $request->file('logo')->getClientOriginalName();
             Storage::disk('public')->putFileAs('logo/',
                 $request->file('logo'), $fileName);
             if (!is_null($fileName)) {
