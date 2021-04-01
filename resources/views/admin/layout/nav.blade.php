@@ -34,38 +34,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('view-product')}}">View Product</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('view-category')}}">View Category</a>
-                    </li>
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link" href="{{route('view-category')}}">View Category</a>--}}
+{{--                    </li>--}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('view-product-image')}}">Image Product</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('view-operator')}}">View operator_id</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('view-camera_after')}}">View camera_after_id</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('view-camera_before')}}">View camera_before_id</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('view-cpu')}}">View cpu_id</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('view-ram')}}">View ram_id</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('view-memory')}}">View memory_id</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('view-sim')}}">View sim_id</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('view-pin')}}">View pin_id</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('view-display')}}">View display_id</a>
                     </li>
                 </ul>
             </div>
@@ -84,16 +57,37 @@
                         <a class="nav-link" href="{{route('view-ram')}}">View Ram</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{route('view-category')}}">View Categories</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{route('view-brand')}}">View Brand</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('create-product')}}">View </a>
+                        <a class="nav-link" href="{{route('view-opera')}}">View operator</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('create-product')}}"></a>
+                        <a class="nav-link" href="{{route('view-cam_after')}}">View camera_after</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('create-product')}}"></a>
+                        <a class="nav-link" href="{{route('view-cam_before')}}">View camera_before</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('view-cpu')}}">View cpu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('view-ram')}}">View ram</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('view-memory')}}">View memory</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('view-sim')}}">View sim</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('view-pin')}}">View pin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('view-display')}}">View display</a>
                     </li>
                 </ul>
             </div>

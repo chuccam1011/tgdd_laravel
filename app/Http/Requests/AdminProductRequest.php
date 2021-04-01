@@ -26,9 +26,9 @@ class AdminProductRequest extends FormRequest
         $id = $this->request->get('id');
         if (isset($id)) {
             return [
-                'name' => 'required',
-                'catalog_id' => 'required',
-                'price' => 'required',
+                'name' => 'required|unique:products,name,'.$id.',id',
+                'category_id' => 'required',
+                'price' => 'required|numeric',
                 'brand_id' => 'required',
                 'operator_id' => 'required',
                 'camera_after_id' => 'required',
@@ -39,19 +39,18 @@ class AdminProductRequest extends FormRequest
                 'sim_id' => 'required',
                 'pin_id' => 'required',
                 'display_id' => 'required',
-                'feature' => 'required',
+//                'feature' => 'required',
                 'title' => 'required',
-                'time-of-launch' => 'required',
-                'slug' => 'required',
-                'type' => 'required',
-                'rate' => 'required',
+                'time_of_launch' => 'required',
+                'slug' => 'required|unique:products,slug,'.$id.',id',
+//                'type' => 'required',
                 'description' => 'required',
                 'content' => 'required',
             ];
         }
         return [
-            'name' => 'required',
-            'catalog_id' => 'required',
+            'name' => 'required|unique:products',
+            'category_id' => 'required',
             'price' => 'required',
             'brand_id' => 'required',
             'operator_id' => 'required',
@@ -63,12 +62,10 @@ class AdminProductRequest extends FormRequest
             'sim_id' => 'required',
             'pin_id' => 'required',
             'display_id' => 'required',
-            'feature' => 'required',
+//            'feature' => 'required',
             'title' => 'required',
-            'time-of-launch' => 'required',
-            'slug' => 'required',
-            'type' => 'required',
-            'rate' => 'required',
+            'time_of_launch' => 'required',
+//            'type' => 'required',
             'description' => 'required',
             'content' => 'required',
         ];
@@ -82,7 +79,27 @@ class AdminProductRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'A name is required',
+            'name.required' => "Name is required",
+            'name.unique' => "Name is unique",
+            'category_id.required' => 'category is required',
+            'price.required' => 'price is required',
+            'price.numeric' => 'price is numeric',
+            'brand_id.required' => 'brand is required',
+            'operator_id.required' => 'operator is required',
+            'camera_after_id.required' => 'camera_after is required',
+            'camera_before_id.required' => 'camera_before is required',
+            'cpu_id.required' => 'cpu is required',
+            'ram_id.required' => 'ram is required',
+            'memory_id.required' => 'memory is required',
+            'sim_id.required' => 'sim is required',
+            'pin_id.required' => 'pin is required',
+            'display_id.required' => 'display  is required',
+            'title.required' => 'title is required',
+            'time_of_launch.required' => 'time-of-launch is required',
+            'slug' => 'Slug is unique',
+//            'type.required' => 'type is required',
+            'description.required' => 'description is required',
+            'content.required' => 'content is required',
         ];
     }
 }

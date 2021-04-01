@@ -16,19 +16,6 @@
                     <button type="button" class="btn btn-primary btn-fw">Create New Categories</button>
                 </a>
                 @if ($categorys->count())
-                    <br>
-                    <br>
-                    <br>
-                    <form action="">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <input placeholder="Enter keyword" type="text" name="key" value="{{ request()->input('key') }}" class="form-control">
-                            </div>
-                            <div class="col-md-6">
-                                <button class="btn btn-primary" type="submit">Search</button>
-                            </div>
-                        </div>
-                    </form>
                     <table class="table table-striped">
                         <thead>
                         <tr>
@@ -66,8 +53,7 @@
                         @endforeach
                         </tbody>
                     </table>
-                    <br>
-                    {{$categorys->appends(request()->all()) }}
+
                 @else
                     <br>
                     <br>

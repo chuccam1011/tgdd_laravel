@@ -1,5 +1,5 @@
 @extends('admin.layout.master')
-@push('title') Create Brand
+@push('title') Create Categories
 @endpush
 @section('nav')
     <div class="nav_admin">
@@ -11,24 +11,17 @@
     <div class="">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Create Brands</h4><br>
-                <form method="post" enctype="multipart/form-data" action="{{route('submitCreate-brand')}}" class="forms-sample">
+                <h4 class="card-title">Edit Categories</h4><br>
+                <form method="post"  action="{{route('submitCreate-category')}}" class="forms-sample">
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputName1">Name</label>
-                        <input type="text" name="name" value="{{old('name')}}" class="form-control" id="exampleInputName1" placeholder="Brand Name" required>
+                        <input type="text" name="name" value="{{old('name')}}" class="form-control" id="exampleInputName1" placeholder="Categories Name" required>
                         @error('name')
                         <p class="text-danger">{{ $message }}</p>
                         @enderror
 
                     </div>
-                    <div class="form-group">
-                        <label>Logo upload</label><br>
-                        <input type="file"  id="logo" name="logo" >
-                    </div>
-                    @error('logo')
-                    <p class="text-danger">{{ $message }}</p>
-                    @enderror
                     <div class="form-group">
                         <label for="exampleTextarea1">Description</label>
                         <textarea name="description" class="form-control" id="exampleTextarea1" rows="2">{{old('description')}}</textarea>

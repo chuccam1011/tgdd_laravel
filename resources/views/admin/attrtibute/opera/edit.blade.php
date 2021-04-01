@@ -1,5 +1,5 @@
 @extends('admin.layout.master')
-@push('title') Create Brand
+@push('title') Edit Operator
 @endpush
 @section('nav')
     <div class="nav_admin">
@@ -11,28 +11,25 @@
     <div class="">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Create Brands</h4><br>
-                <form method="post" enctype="multipart/form-data" action="{{route('submitCreate-brand')}}" class="forms-sample">
+                <h4 class="card-title">Edit Operator</h4><br>
+                <form method="post" enctype="multipart/form-data" action="{{route('submitEdit-opera')}}"
+                      class="forms-sample">
                     @csrf
+                    <input type="hidden" name="id" value="{{$opera->id}}">
                     <div class="form-group">
                         <label for="exampleInputName1">Name</label>
-                        <input type="text" name="name" value="{{old('name')}}" class="form-control" id="exampleInputName1" placeholder="Brand Name" required>
+                        <input type="text" name="name" value="{{old('name',$opera->name)}}" class="form-control"
+                               id="exampleInputName1" placeholder="Brand Name" required>
                         @error('name')
                         <p class="text-danger">{{ $message }}</p>
                         @enderror
-
                     </div>
-                    <div class="form-group">
-                        <label>Logo upload</label><br>
-                        <input type="file"  id="logo" name="logo" >
-                    </div>
-                    @error('logo')
-                    <p class="text-danger">{{ $message }}</p>
-                    @enderror
                     <div class="form-group">
                         <label for="exampleTextarea1">Description</label>
-                        <textarea name="description" class="form-control" id="exampleTextarea1" rows="2">{{old('description')}}</textarea>
+                        <textarea name="description" class="form-control" id="exampleTextarea1"
+                                  rows="2">{{old('name',$opera->description)}}</textarea>
                     </div>
+
                     <button type="submit" class="btn btn-success mr-2">Submit</button>
                 </form>
             </div>

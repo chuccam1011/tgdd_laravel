@@ -70,6 +70,7 @@ class ImgProductController extends Controller
     {
         $image = ImgProduct::find($request->id);
         $image->delete();
+        Storage::delete('public/logo/' . $image->img);
         return redirect()->route('view-product-image');
     }
 }

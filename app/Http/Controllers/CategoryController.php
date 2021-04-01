@@ -27,6 +27,10 @@ class CategoryController extends Controller
     public function view(Request $request)
     {
         $category = Categories::query();
+        $keyword = $request->input('key');
+        if ($keyword) {
+            $category->where('name', 'like', "%{$keyword}%");
+        }
 
         $categorys = $category->latest('id')->paginate(20);
         return view('admin.attrtibute.category.index', compact('categorys'));

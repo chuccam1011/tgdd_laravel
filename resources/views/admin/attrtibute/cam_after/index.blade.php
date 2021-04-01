@@ -1,5 +1,5 @@
 @extends('admin.layout.master')
-@push('title') All Categories @endpush
+@push('title') All Cam After @endpush
 @section('nav')
     <div class="nav_admin">
         @include('admin.layout.nav')
@@ -11,11 +11,12 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title"></h4>
-                <p class="card-description"> All Categories </p>
-                <a href="{{route('create-category')}}">
-                    <button type="button" class="btn btn-primary btn-fw">Create New Categories</button>
+                <p class="card-description"> All Cam After </p>
+                <a href="{{route('create-cam_after')}}">
+                    <button type="button" class="btn btn-primary btn-fw">Create New Cam After</button>
                 </a>
-                @if ($categorys->count())
+
+                @if ($camAfters->count())
                     <br>
                     <br>
                     <br>
@@ -29,30 +30,30 @@
                             </div>
                         </div>
                     </form>
+
+                    <br>
                     <table class="table table-striped">
                         <thead>
                         <tr>
                             <th> #ID</th>
                             <th> Name</th>
-                            <th> Slug</th>
                             <th> Description</th>
                             <th> Create At</th>
                             <th> Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($categorys as $category)
+                        @foreach($camAfters as $cam_after)
                             <tr>
-                                <td>{{$category->id}}</td>
-                                <td>{{$category->name}}</td>
-                                <td>{{$category->slug}}</td>
-                                <td>{{$category->description}}</td>
-                                <td>{{$category->created_at}}</td>
+                                <td>{{$cam_after->id}}</td>
+                                <td>{{$cam_after->name}}</td>
+                                <td>{{$cam_after->description}}</td>
+                                <td>{{$cam_after->created_at}}</td>
                                 <td>
-                                    <a href="{{route('edit-category',$category->id)}}">
+                                    <a href="{{route('edit-cam_after',$cam_after->id)}}">
                                         <button type="button" class="btn btn-success btn-fw">Edit</button>
                                     </a>
-                                    <form class="6from-delete" action="{{route('delete-category', $category->id) }}"
+                                    <form class="6from-delete" action="{{route('delete-cam_after', $cam_after->id) }}"
                                           method="POST">
                                         @method('delete')
                                         @csrf
@@ -67,7 +68,8 @@
                         </tbody>
                     </table>
                     <br>
-                    {{$categorys->appends(request()->all()) }}
+                    {{$camAfters->appends(request()->all()) }}
+
                 @else
                     <br>
                     <br>

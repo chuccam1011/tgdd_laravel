@@ -74,6 +74,7 @@ class BrandController extends Controller
     public function delete(Request $request)
     {
         $brand = Brand::find($request->id);
+        Storage::delete('public/logo/' . $brand->logo);
         $brand->delete();
         return redirect()->route('view-brand');
     }

@@ -1,5 +1,5 @@
 @extends('admin.layout.master')
-@push('title') All Brands @endpush
+@push('title') All Ram @endpush
 @section('nav')
     <div class="nav_admin">
         @include('admin.layout.nav')
@@ -11,28 +11,15 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title"></h4>
-                <p class="card-description"> All Brands </p>
-                <a href="{{route('create-brand')}}">
-                    <button type="button" class="btn btn-primary btn-fw">Create New Brand</button>
+                <p class="card-description"> All Ram </p>
+                <a href="{{route('create-ram')}}">
+                    <button type="button" class="btn btn-primary btn-fw">Create New Ram</button>
                 </a>
-
-                <br>
-                <br>
-                <br>
-                <form action="">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <input placeholder="Enter keyword" type="text" name="key" value="{{ request()->input('key') }}" class="form-control">
-                        </div>
-                        <div class="col-md-6">
-                            <button class="btn btn-primary" type="submit">Search</button>
-                        </div>
-                    </div>
-                </form>
+                @if ($rams->count())
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th> Logo</th>
+                        <th> #ID</th>
                         <th> Name</th>
                         <th> Description</th>
                         <th> Number Product</th>
@@ -41,20 +28,19 @@
                     </thead>
                     <tbody>
 
-                    @foreach($brands as $brand)
+                    @foreach($rams as $ram)
                         <tr>
-                            <td class="py-1">
-                                <img src="{{asset('storage/logo/'.$brand->logo)}}" alt="image">
+
+                            <td>{{$ram->id}}</td>
+                            <td>{{$ram->name}}</td>
                             </td>
-                            <td>{{$brand->name}}</td>
-                            </td>
-                            <td>{{$brand->description}}</td>
-                            <td>{{$brand->created_at}}</td>
+                            <td>{{$ram->description}}</td>
+                            <td>{{$ram->created_at}}</td>
                             <td>
-                                <a href="{{route('edit-brand',$brand->id)}}">
+                                <a href="{{route('edit-ram',$ram->id)}}">
                                     <button type="button" class="btn btn-success btn-fw">Edit</button>
                                 </a>
-                                <form class="frm-delete" action="{{ route('delete-brand', $brand->id) }}" method="POST">
+                                <form class="frm-delete" action="{{ route('delete-ram', $ram->id) }}" method="POST">
                                     @method('delete')
                                     @csrf
                                     <button type="button" class="btn-delete btn btn-danger btn-fw">
@@ -68,8 +54,11 @@
 
                     </tbody>
                 </table>
-                <br>
-                {{$brands->appends(request()->all()) }}
+                @else
+                    <br>
+                    <br>
+                    <p>There is no result </p>
+                @endif
             </div>
         </div>
 

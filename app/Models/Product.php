@@ -11,57 +11,57 @@ class Product extends Model
 
     public function cam_afters()
     {
-        return $this->hasOne(CamAfter::class, 'product_id');
+        return $this->hasOne(CamAfter::class, 'id');
     }
 
     public function cam_befors()
     {
-        return $this->hasOne(CamBefor::class, 'product_id');
+        return $this->hasOne(CamBefor::class, 'id');
     }
 
     public function categories()
     {
-        return $this->hasOne(Categories::class, 'product_id');
+        return $this->hasOne(Categories::class,'id','category_id');
     }
 
     public function cpu()
     {
-        return $this->hasOne(CPU::class, 'product_id');
+        return $this->hasOne(CPU::class, 'id');
     }
 
     public function ram()
     {
-        return $this->hasOne(Ram::class, 'product_id');
+        return $this->hasOne(Ram::class, 'id');
     }
 
     public function pin()
     {
-        return $this->hasOne(Pin::class, 'product_id');
+        return $this->hasOne(Pin::class, 'id');
     }
 
     public function sim()
     {
-        return $this->hasOne(Sim::class, 'product_id');
+        return $this->hasOne(Sim::class, 'id');
     }
 
     public function memory()
     {
-        return $this->hasOne(Memory::class, 'product_id');
+        return $this->hasOne(Memory::class, 'id');
     }
 
     public function display()
     {
-        return $this->hasOne(Display::class, 'product_id');
+        return $this->hasOne(Display::class, 'id');
     }
 
     public function brand()
     {
-        return $this->hasOne(Brand::class, 'product_id');
+        return $this->hasOne(Brand::class, 'id');
     }
 
-    public function opera()
+    public function operators()
     {
-        return $this->hasOne(Operator::class, 'product_id');
+        return $this->hasOne(Operator::class, 'id');
     }
 
     public function transactions()
