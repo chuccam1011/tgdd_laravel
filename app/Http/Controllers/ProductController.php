@@ -36,7 +36,6 @@ class ProductController extends Controller
         $pins = Pin::all();
         $products = Product::all();
 
-
         return view('admin.product.create',
             compact('products', 'brands', 'operas', 'camAfters', 'camBefores', 'sims', 'displays', 'categories', 'rams', 'cpus', 'memorys', 'pins'));
 
@@ -66,7 +65,8 @@ class ProductController extends Controller
         $product->title = $request->title;
         $product->time_of_launch = $request->time_of_launch;
         $product->slug = Str::slug($request->name);
-        $product->type = $is_default;
+        $product->is_default = $is_default;
+        $product->qty = $request->qty;
         if (!$is_default)
             $product->parent_id = $request->parent_id;
         else $product->parent_id = 0;
@@ -88,7 +88,8 @@ class ProductController extends Controller
 
     public function view(Request $request)
     {
-        $product = Product::query();
+        $products = Product::query();
+
         $brands = Brand::all();
         $operas = Operator::all();
         $camAfters = CamAfter::all();
@@ -101,9 +102,32 @@ class ProductController extends Controller
         $memorys = Memory::all();
         $pins = Pin::all();
 
-        $products = $product->latest('id')->paginate(5);
+        $attributes = [
+            'id' => 'ID', 'brand_id' => 'Brand', 'category_id' => 'Categories', 'name' => 'Name'
+        ];
+        $sorts = ['ASC' => 'ASC', 'DESC' => 'DESC'];
+
+
+        $keyword = $request->input('key');
+        if ($keyword) {
+            $products->where('name', 'like', "%{$keyword}%");
+        }
+        if ($request->input('category_id')) {
+            $products->where('category_id', '=', "{$request->input('category_id')}");
+        }
+        if ($request->input('brand_id')) {
+            $products->where('brand_id', '=', "{$request->input('brand_id')}");
+        }
+        if ($request->input('is_default')) {
+            $products->where('is_default', '=', 1);
+        }
+        if ($request->input('order_by')) {
+            $products->orderBy($request->order_by, $request->sort);
+
+        }
+        $products = $products->latest('id')->paginate(5);
         return view('admin.product.view',
-            compact('products', 'brands', 'operas', 'camAfters', 'camBefores', 'sims', 'displays', 'categories', 'rams', 'cpus', 'memorys', 'pins'));
+            compact('sorts', 'attributes', 'products', 'brands', 'operas', 'camAfters', 'camBefores', 'sims', 'displays', 'categories', 'rams', 'cpus', 'memorys', 'pins'));
 
     }
 
@@ -152,11 +176,11 @@ class ProductController extends Controller
         $product->title = $request->title;
         $product->time_of_launch = $request->time_of_launch;
         $product->slug = Str::slug($request->name);
-        $product->type = $is_default;
+        $product->is_default = $is_default;
+        $product->qty = $request->qty;
         if (!$is_default)
             $product->parent_id = $request->parent_id;
         else $product->parent_id = 0;
-//        $product->rate = $product->rate;
         $product->description = $request->description;
         $product->content = $request->input('content');
 
@@ -173,11 +197,66 @@ class ProductController extends Controller
         return redirect()->route('view-product');
     }
 
+
+    public function createChild(Request $request)
+    {
+        $product = Product::find($request->parent_id);
+        $products = Product::all();
+        $brands = Brand::all();
+        $operas = Operator::all();
+        $camAfters = CamAfter::all();
+        $camBefores = CamBefor::all();
+        $sims = Sim::all();
+        $displays = Display::all();
+        $categories = Categories::all();
+        $rams = Ram::all();
+        $cpus = Cpu::all();
+        $memorys = Memory::all();
+        $pins = Pin::all();
+
+
+        return view('admin.product.create-child',
+            compact('products', 'product', 'brands', 'operas', 'camAfters', 'camBefores', 'sims', 'displays', 'categories', 'rams', 'cpus', 'memorys', 'pins'));
+    }
+
+    public function submitCreateChild(AdminProductRequest $request)
+    {
+        $product = new Product();
+        $product->name = $request->name;
+        $product->category_id = $request->category_id;
+        $product->price = $request->price;
+        $product->brand_id = $request->brand_id;
+        $product->operator_id = $request->operator_id;
+        $product->camera_after_id = $request->camera_after_id;
+        $product->camera_before_id = $request->camera_before_id;
+        $product->cpu_id = $request->cpu_id;
+        $product->ram_id = $request->ram_id;
+        $product->memory_id = $request->memory_id;
+        $product->sim_id = $request->sim_id;
+        $product->pin_id = $request->pin_id;
+        $product->display_id = $request->display_id;
+        $product->feature = $request->feature;
+        $product->title = $request->title;
+        $product->time_of_launch = $request->time_of_launch;
+        $product->slug = Str::slug($request->name);
+        $product->is_default = 0;
+        $product->parent_id = $request->parent_id;
+        $product->thumbnail = $request->thumbnail;
+        $product->description = $request->description;
+        $product->qty = $request->qty;
+        $product->content = $request->input('content');
+
+        $product->save();
+        return redirect()->route('view-product');
+    }
+
     public function delete(Request $request)
     {
         $product = Product::find($request->id);
         $product->delete();
-        Storage::delete('public/thumbnail/' . $product->logo);
+        if ($product->is_default) {//chi xoa thumbnail voi nhung san pham gốc
+            Storage::delete('public/thumbnail/' . $product->logo);
+        }
         return redirect()->route('view-product');
     }
 }

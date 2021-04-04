@@ -34,6 +34,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('creat-product', [\App\Http\Controllers\ProductController::class, 'create'])->name('create-product');
     Route::post('creat-product', [\App\Http\Controllers\ProductController::class, 'submitCreate'])->name('submitCreate-product');
     Route::get('edit-product/{id}', [\App\Http\Controllers\ProductController::class, 'edit'])->name('edit-product');
+    Route::get('createChild-product/{parent_id}', [\App\Http\Controllers\ProductController::class, 'createChild'])->name('create-child-product');
+    Route::post('createChild-product', [\App\Http\Controllers\ProductController::class, 'submitCreateChild'])->name('submitCreate-child-product');
     Route::post('edit-product', [\App\Http\Controllers\ProductController::class, 'submitEdit'])->name('submitEdit-product');
     Route::get('view-product', [\App\Http\Controllers\ProductController::class, 'view'])->name('view-product');
     Route::delete('delete-product/{id}', [\App\Http\Controllers\ProductController::class, 'delete'])->name('delete-product');

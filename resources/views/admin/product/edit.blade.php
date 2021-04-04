@@ -1,5 +1,5 @@
 @extends('admin.layout.master')
-@push('title') Edit a New Product
+@push('title') Edit Product
 @endpush
 @section('nav')
     <div class="nav_admin">
@@ -32,6 +32,7 @@
                     <p class="text-danger">{{ $message }}</p>
                     @enderror
                     <input type="hidden" name="id" value="{{$product->id}}">
+                    <input type="hidden" name="is_edit" value="1">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Product info</h4>
@@ -48,7 +49,6 @@
                                 @error('name')
                                 <p class="text-danger">{{ $message }}</p>
                                 @enderror
-
                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Slug</label>
@@ -88,7 +88,17 @@
                                 @error('description')
                                 <p class="text-danger">{{ $message }}</p>
                                 @enderror
-
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Qty</label>
+                                        <div class="col-sm-9">
+                                            <input type="number" class="form-control" name="qty"></input>
+                                        </div>
+                                    </div>
+                                </div>
+                                @error('qty')
+                                <p class="text-danger">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
@@ -306,14 +316,15 @@
                                         <div class="col-sm-9">
                                             <select name="parent_id" id="parent_id" class="form-control">
                                                 <option>Select</option>
-                                                @foreach($products as $product)
+                                                @foreach($products as $product_s)
                                                     <option
-                                                        {{ old('parent_id',$product->parent_id)== $product->parent_id ? 'selected' : '' }} value="{{$product->id}}">{{$product->name}}</option>
+                                                        {{ old('parent_id',$product->parent_id) == $product_s->id ? 'selected' : '' }}
+                                                        value="{{$product_s->id}}">{{$product_s->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
-                                    @error('pin_id')
+                                    @error('parent_id')
                                     <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
@@ -323,7 +334,7 @@
                                         <label class="form-check-label">
                                             Is Default
                                             <input name="is_default" type="checkbox" class="form-check-input"
-                                                {{$product->type== 1 ? 'checked' : ''}}>
+                                                {{$product->is_default == 1 ? 'checked' : ''}}>
                                         </label>
                                     </div>
                                     @error('is_default')

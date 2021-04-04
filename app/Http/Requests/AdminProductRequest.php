@@ -24,7 +24,8 @@ class AdminProductRequest extends FormRequest
     public function rules()
     {
         $id = $this->request->get('id');
-        if (isset($id)) {
+        $is_edit = $this->request->get('is_edit');
+        if (isset($is_edit)) {
             return [
                 'name' => 'required|unique:products,name,'.$id.',id',
                 'category_id' => 'required',
@@ -39,11 +40,9 @@ class AdminProductRequest extends FormRequest
                 'sim_id' => 'required',
                 'pin_id' => 'required',
                 'display_id' => 'required',
-//                'feature' => 'required',
                 'title' => 'required',
                 'time_of_launch' => 'required',
                 'slug' => 'required|unique:products,slug,'.$id.',id',
-//                'type' => 'required',
                 'description' => 'required',
                 'content' => 'required',
             ];
@@ -62,10 +61,8 @@ class AdminProductRequest extends FormRequest
             'sim_id' => 'required',
             'pin_id' => 'required',
             'display_id' => 'required',
-//            'feature' => 'required',
             'title' => 'required',
             'time_of_launch' => 'required',
-//            'type' => 'required',
             'description' => 'required',
             'content' => 'required',
         ];

@@ -53,11 +53,10 @@
                                     </form>
                                 </td>
                             </tr>
-
                         @endforeach
                         </tbody>
                     </table>
-
+                    {{$images->appends(request()->all()) }}
                 @else
                     <br>
                     <br>
